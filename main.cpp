@@ -17,7 +17,7 @@ public:
 
     Point operator+(Point);
     Point operator-(Point);
-    int operator (Point);
+    int operator*(Point);
     Point operator*(int);
 };
 
@@ -48,10 +48,10 @@ Point Point::operator*(int a)
     return Point(x * a, y * a);
 }
 
-//Point Point::operator*(Point a)
-//{
-    //return Point((x * a.y) - (y * a.x), 0);
-//}
+int Point::operator*(Point a)
+{
+    return int(x * a.y - y * a.x);
+}
 
 ostream& operator<<(ostream& out, const Point& a)
 {
@@ -61,12 +61,10 @@ ostream& operator<<(ostream& out, const Point& a)
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
-    int x, y, h;
-    cin>>x>>y>>h;
+    int x, y, x1, y1;
+    cin>>x>>y>>x1>>y1;
     Point a(x, y);
-    Point b(x, y);
-    cout<<a + b<<endl;
-    cout<<a * h<<endl;
-    //cout<<a * b<<endl;
+    Point b(x1, y1);
+    cout<<a * b<<endl;
     return 0;
 }
